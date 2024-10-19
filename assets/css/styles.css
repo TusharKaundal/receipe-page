@@ -1,17 +1,18 @@
 :root {
-  --white: hsl(0, 0%, 100%);
-  --stone-100: hsl(30, 54%, 90%);
-  --stone-150: hsl(30, 18%, 87%);
-  --stone-600: hsl(30, 10%, 34%);
-  --stone-900: hsl(24, 5%, 18%);
-  --brown-800: hsl(14, 45%, 36%);
-  --rose-800: hsl(332, 51%, 32%);
-  --rose-50: hsl(330, 100%, 98%);
+  --white: rgb(255, 255, 255);
+  --stone-100: rgb(243, 229, 215);
+  --stone-150: rgb(227, 221, 215);
+  --stone-600: rgb(95, 86, 77);
+  --stone-900: rgb(49, 46, 44);
+  --brown-800: rgb(133, 70, 50);
+  --rose-50: rgb(255, 247, 251);
+  --rose-800: rgb(122, 40, 78);
 }
 
 * {
   margin: 0;
   box-sizing: border-box;
+  padding: 0;
 }
 
 p {
@@ -19,19 +20,21 @@ p {
 }
 
 .text-preset-1 {
-  font-family: "Young-serif";
-  font-size: 2.5rem;
+  font-family: "Young Serif";
+  font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 400;
   line-height: 100%;
   letter-spacing: 0px;
+  color: var(--stone-900);
 }
 
 .text-preset-2 {
-  font-family: "Young-serif";
+  font-family: "Young Serif";
   font-size: 1.75rem;
   font-weight: 400;
   line-height: 100%;
   letter-spacing: 0px;
+  color: var(--brown-800);
 }
 
 .text-preset-3 {
@@ -40,6 +43,7 @@ p {
   font-weight: 600;
   line-height: 100%;
   letter-spacing: 0px;
+  color: var(--rose-800);
 }
 
 .text-preset-4 {
@@ -48,15 +52,27 @@ p {
   font-weight: 400;
   line-height: 150%;
   letter-spacing: 0px;
+  color: var(--stone-600);
 }
 
-.text-preset-5 {
+.text-preset-4-bold {
   font-family: "Outfit";
   font-size: 1rem;
   font-weight: 700;
   line-height: 150%;
   letter-spacing: 0px;
+  color: var(--stone-800);
 }
+
+.text-preset-4-bold-cl {
+  font-family: "Outfit";
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 0px;
+  color: var(--brown-800);
+}
+
 
 body {
   min-height: 100vh;
@@ -68,15 +84,13 @@ body {
 
 }
 
-.main-container {
+main {
   max-width: 46rem;
   display: flex;
   flex-direction: column;
   background-color: var(--white);
-  padding: clamp(32px, 40px, 5vw);
-  border-radius: 1rem;
   width: 100%;
-  gap: 24px;
+  gap: 40px;
 }
 
 .main-img {
@@ -85,12 +99,102 @@ body {
 
 .main-img img {
   width: 100%;
-  border-radius: 1rem;
-  /* aspect-ratio: 1; */
 }
 
-@media screen and (min-width:768px) {
+.main-content {
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.main-content-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.preparation {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 16px;
+  border-radius: 12px;
+  background-color: var(--rose-50);
+}
+
+.list-style-1,
+.list-style-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-left: 24px;
+}
+
+
+
+.list-style-1 li::marker,
+.list-style-2 li::marker {
+  color: var(--rose-800);
+}
+
+.list-style-1 li,
+.list-style-2 li {
+  padding-left: 10px;
+}
+
+.ingredients,
+.instructions,
+.nutrition {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hr-border {
+  border: 1px solid var(--stone-150);
+}
+
+.nutrition-table {
+  padding: 0px 32px;
+  border-collapse: collapse;
+}
+
+tr:nth-child(-n+3) td {
+  border-bottom: 2px solid var(--stone-150);
+  padding-bottom: 12px;
+}
+
+tr:nth-last-child(-n+3) td {
+  padding-top: 12px;
+}
+
+tr td:nth-child(1) {
+  padding-left: 32px;
+}
+
+tr td:nth-child(2) {
+  padding-right: 32px;
+}
+
+
+@media screen and (min-width : 498px) {
   body {
-    padding: 128px 48px;
+    padding: 60px 48px;
+  }
+
+  main {
+    padding: 40px;
+    border-radius: 1rem;
+  }
+
+  .main-img img {
+    border-radius: 1rem;
+  }
+
+  .main-content {
+    padding: 0;
   }
 }
